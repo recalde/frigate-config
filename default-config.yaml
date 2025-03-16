@@ -1,0 +1,29 @@
+mqtt:
+  enabled: false
+cameras:
+  test:
+    ffmpeg:
+      #hwaccel_args: preset-vaapi
+      inputs:
+        - path: /media/frigate/person-bicycle-car-detection.mp4
+          input_args: -re -stream_loop -1 -fflags +genpts
+          roles:
+            - detect
+            - rtmp
+    detect:
+      height: 1080
+      width: 1920
+      fps: 5
+detectors:
+  ov:
+    type: openvino
+    device: CPU
+    model:
+      path: /openvino-model/FP16/ssdlite_mobilenet_v2.xml
+model:
+  width: 300
+  height: 300
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
+version: 0.14
