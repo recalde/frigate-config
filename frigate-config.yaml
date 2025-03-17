@@ -5,40 +5,22 @@ ffmpeg:
   hwaccel_args: preset-vaapi
 
 detectors:
-  ov:
-    type: openvino
-    device: AUTO
   coral:
     type: edgetpu
     device: usb
 
-model:
-  width: 300
-  height: 300
-  input_tensor: nhwc
-  input_pixel_format: bgr
-  path: /openvino-model/ssdlite_mobilenet_v2.xml
-  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
-
 record:
   enabled: True
-  retain:
-    days: 7
-    mode: motion
-  alerts:
-    retain:
-      days: 30
-  detections:
-    retain:
-      days: 30
 
 snapshots:
   enabled: True
-  retain:
-    default: 30
 
 cameras:
   camera_1:
+    detect:
+      width: 1056
+      height: 720
+      fps: 5
     ffmpeg:
       inputs:
         - path: rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=0
@@ -47,5 +29,5 @@ cameras:
         - path: rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
-    record:
-      enabled: True
+
+version: 0.14
