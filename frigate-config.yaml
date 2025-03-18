@@ -20,6 +20,35 @@ record:
 snapshots:
   enabled: true
 
+objects:
+  track:
+    - person
+    - cat 
+    - dog 
+    - bear
+    - backpack
+    - bicycle
+    - car
+    - umbrella
+    - handbag
+    - suitcase
+    - potted plant 
+
+review:
+  alerts:
+    labels:
+      - person
+      - cat 
+      - dog 
+      - bear
+  detections:
+    labels:
+      - car
+      - person
+      - cat 
+      - dog 
+      - bear
+
 cameras:
   camera_1:
     detect:
