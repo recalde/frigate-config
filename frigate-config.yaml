@@ -55,11 +55,6 @@ cameras:
       width: 1056
       height: 720
       fps: 5
-    onvif:
-      host: 10.1.1.230
-      port: 80
-      user: admin
-      password: g2Wa0nD70P9v
     ffmpeg:
       inputs:
         - path: rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=0
@@ -77,10 +72,5 @@ cameras:
       alerts:
         required_zones: danger_zone
 
-camera_groups:
-  1_Fern:
-    order: 1
-    icon: LuHome
-    cameras: camera_1
-
 version: 0.14
+
