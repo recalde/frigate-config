@@ -1,6 +1,11 @@
 mqtt:
   enabled: false
 
+logger:
+  default: info
+  logs:
+    frigate.ptz.onvif: debug
+
 ffmpeg:
   hwaccel_args: preset-vaapi
 
@@ -10,10 +15,10 @@ detectors:
     device: usb
 
 record:
-  enabled: True
+  enabled: true
 
 snapshots:
-  enabled: True
+  enabled: true
 
 cameras:
   camera_1:
@@ -21,6 +26,11 @@ cameras:
       width: 1056
       height: 720
       fps: 5
+    onvif:
+      host: 10.1.1.230
+      port: 80
+      user: admin
+      password: g2Wa0nD70P9v
     ffmpeg:
       inputs:
         - path: rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=0
@@ -29,5 +39,13 @@ cameras:
         - path: rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=1
           roles:
             - detect
+    zones:
+      danger_zone:
+        coordinates: 0.49,0.098,0,0.383,0,1,0.727,0.789,0.661,0.105
+        inertia: 3
+        loitering_time: 0
 
+    review:
+      alerts:
+        required_zones: danger_zone
 version: 0.14
