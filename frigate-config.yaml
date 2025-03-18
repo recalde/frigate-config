@@ -1,11 +1,6 @@
 mqtt:
   enabled: false
 
-logger:
-  default: info
-  logs:
-    frigate.ptz.onvif: debug
-
 ffmpeg:
   hwaccel_args: preset-vaapi
 
@@ -16,6 +11,11 @@ detectors:
 
 record:
   enabled: true
+  retain:
+    days: 1
+  events:
+    retain:
+      default: 30
 
 snapshots:
   enabled: true
@@ -23,8 +23,8 @@ snapshots:
 objects:
   track:
     - person
-    - cat 
-    - dog 
+    - cat
+    - dog
     - bear
     - backpack
     - bicycle
@@ -32,21 +32,21 @@ objects:
     - umbrella
     - handbag
     - suitcase
-    - potted plant 
+    - potted plant
 
 review:
   alerts:
     labels:
       - person
-      - cat 
-      - dog 
+      - cat
+      - dog
       - bear
   detections:
     labels:
       - car
       - person
-      - cat 
-      - dog 
+      - cat
+      - dog
       - bear
 
 cameras:
@@ -73,8 +73,14 @@ cameras:
         coordinates: 0.49,0.098,0,0.383,0,1,0.727,0.789,0.661,0.105
         inertia: 3
         loitering_time: 0
-
     review:
       alerts:
         required_zones: danger_zone
+
+camera_groups:
+  1_Fern:
+    order: 1
+    icon: LuHome
+    cameras: camera_1
+
 version: 0.14
