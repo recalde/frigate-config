@@ -1,5 +1,9 @@
 mqtt:
-  enabled: false
+  enabled: True
+  host: homeassistant.1fern.com
+  topic_prefix: frigate
+  user: frigate
+  password: o-06IoJ\X1=X
 
 ffmpeg:
   hwaccel_args: preset-vaapi
@@ -12,7 +16,8 @@ detectors:
 record:
   enabled: true
   retain:
-    days: 1
+    days: 7
+    mode: motion
   events:
     retain:
       default: 30
@@ -49,6 +54,11 @@ review:
       - dog
       - bear
 
+go2rtc:
+  streams:
+    camera_1:
+      - rtsp://admin:g2Wa0nD70P9v@10.1.1.230:554/cam/realmonitor?channel=1&subtype=0
+
 cameras:
   camera_1:
     detect:
@@ -73,4 +83,3 @@ cameras:
         required_zones: danger_zone
 
 version: 0.14
-
