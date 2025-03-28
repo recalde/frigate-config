@@ -77,10 +77,20 @@ cameras:
             - detect
     zones:
       danger_zone:
-        coordinates: 0.358,0.189,0.347,0.802,0.336,1,1,1,1,0
+        coordinates: 0,0.697,0,1,1,1,1,0.717,0.874,0.725,0.779,0.959,0.555,0.944,0.553,0.717
         inertia: 3
         loitering_time: 0
         objects:
+          - dog
+          - person
+      sidewalk_road:
+        coordinates: 
+          0,0.484,0,0.704,0.56,0.738,0.565,0.954,0.784,0.954,1,0.724,1,0.605,0.402,0.631,0.214,0.556
+        loitering_time: 0
+        objects:
+          - bicycle
+          - car
+          - cat
           - dog
           - person
     review:
@@ -101,12 +111,16 @@ cameras:
             - detect
     zones:
       danger_zone:
-        coordinates: 0.467,0,0.338,0.115,0,0.244,0,0.805,0.778,0.867,0.742,0
+        coordinates: 
+          0.226,0.48,0.189,0.3,0.058,0.296,0.102,0,0,0,0,1,0.198,1,0.296,1,0.551,1,1,0.995,1,0.662,0.74,0.637,0.74,0.574,0.578,0.545
         inertia: 3
         loitering_time: 0
         objects:
           - dog
           - person
+          - bear
+          - bicycle
+          - potted plant
     review:
       alerts:
         required_zones: danger_zone
