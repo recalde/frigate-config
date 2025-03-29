@@ -17,7 +17,7 @@ record:
   enabled: true
   retain:
     days: 7
-    mode: motion
+    mode: all
   events:
     retain:
       default: 30
@@ -77,15 +77,18 @@ cameras:
             - detect
     zones:
       danger_zone:
-        coordinates: 0,0.697,0,1,1,1,1,0.717,0.874,0.725,0.779,0.959,0.555,0.944,0.553,0.717
+        coordinates: 0,0.686,0,1,1,1,1,0.717,0.874,0.725,0.814,0.872,0.558,0.853,0.552,0.708
         inertia: 3
         loitering_time: 0
         objects:
           - dog
           - person
+          - handbag
+          - cat
       sidewalk_road:
         coordinates: 
-          0,0.484,0,0.704,0.56,0.738,0.565,0.954,0.784,0.954,1,0.724,1,0.605,0.402,0.631,0.214,0.556
+          0,0.484,0,0.693,0.568,0.7,0.571,0.931,0.776,0.953,0.871,0.718,1,0.709,1,0.641,0.844,0.664,0.846,0.706,0.729,0.708,0.726,0.623,0.374,0.61,0.214,0.556
+        inertia: 3
         loitering_time: 0
         objects:
           - bicycle
@@ -93,9 +96,9 @@ cameras:
           - cat
           - dog
           - person
-    review:
-      alerts:
-        required_zones: danger_zone
+          - backpack
+          - handbag
+          - bear
   camera_2:
     detect:
       width: 1056
@@ -112,7 +115,7 @@ cameras:
     zones:
       danger_zone:
         coordinates: 
-          0.226,0.48,0.189,0.3,0.058,0.296,0.102,0,0,0,0,1,0.198,1,0.296,1,0.551,1,1,0.995,1,0.662,0.74,0.637,0.74,0.574,0.578,0.545
+          0.189,0.288,0.212,0.162,0.107,0.118,0.161,0,0,0,0,1,0.198,1,0.296,1,0.551,1,1,0.995,1,0.662,0.74,0.637,0.74,0.574,0.578,0.545,0.235,0.463
         inertia: 3
         loitering_time: 0
         objects:
@@ -121,8 +124,18 @@ cameras:
           - bear
           - bicycle
           - potted plant
-    review:
-      alerts:
-        required_zones: danger_zone
-
+          - cat
+      neighbors:
+        coordinates: 
+          1,0.658,0.989,0.474,0.656,0.423,0.518,0.265,0.093,0.137,0.066,0.283,0.191,0.295,0.228,0.476,0.746,0.574,0.745,0.631
+        inertia: 3
+        loitering_time: 0
+        objects: person
 version: 0.14
+camera_groups:
+  1_Fern:
+    order: 1
+    icon: LuVideo
+    cameras:
+      - camera_1
+      - camera_2
